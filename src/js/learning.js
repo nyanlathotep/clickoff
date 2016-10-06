@@ -1,14 +1,7 @@
-//console.log('butts');
-
 import Vue from 'vue';
+import Main from '../vue/main.vue';
 
-var View = new Vue({
-  data: {
-    message: 'hello!',
-    test: 'this is a test'
-  },
-  template: '<div>{{message}} - {{test}}</div>'
-});
+var View = new Vue(Main);
 
 document.addEventListener('DOMContentLoaded', function() {
   View.$mount('#app');
