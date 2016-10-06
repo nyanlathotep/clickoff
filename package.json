@@ -7,10 +7,10 @@
     "dist-js": "set NODE_ENV=production && browserify src/js/learning.js -g envify | uglifyjs -c -m > dist/learning.user.js",
     "dist-html": "cp src/html/index.html dist/",
     "dist": "npm run dist-js && npm run dist-html",
-    "build-js": "set NODE_ENV=development && browserify src/js/learning.js > build/learning.user.js",
+    "build-js": "set NODE_ENV=development && browserify src/js/learning.js -g envify > build/learning.user.js",
     "build-html": "cp src/html/index.html build/",
     "build": "npm run build-js && npm run build-html",
-    "watch": "set NODE_ENV=development && watchify -v -d src/js/learning.js -o build/learning.user.js",
+    "watch": "set NODE_ENV=development && watchify -v -d src/js/learning.js -g envify -o build/learning.user.js",
     "setup": "mkdir build && mkdir dist",
     "start": "start build/index.html"
   },
