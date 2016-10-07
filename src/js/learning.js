@@ -1,8 +1,6 @@
 import Vue from 'vue';
-import Language from './language.js';
+import Lang from './language.js';
 import Main from '../vue/main.vue';
-
-var Lang = new Language();
 
 Lang.add_language('en', {parent:null, entries:{
   'res_smoke': 'Smoke',

@@ -1,31 +1,30 @@
 let instance = null;
 
 export default class {
-  constructor() {
-    if (!instance) {
-      instance = this;
-      this.languages = {};
-      this.current_lang = null;
-    }
-    return instance;
+  static get languages() {
+    if (!this._languages) this._languages = {};
+    return this._languages;
   }
-  add_language(id, lang) {
+  static get current_lang() {
+    return this._current_lang;
+  }
+  static set current_lang(val) {
+    this._current_lang = val;
+  }
+  static add_language(id, lang) {
     this.languages[id] = lang;
     if (!this.current_lang) this.current_lang = id;
   }
-  add_entry(key, id, string) {
+  static add_entry(key, id, string) {
     this.languages[id].entries[key] = string;
   }
-  lookup(key, id) {
-    console.log('getting ', key, ' from ', id);
-    console.log(this.languages[id]);
-    return this.languages[id].entries[key]
+  static lookup(key, id) {
+    return this.languages[id].entries[key];
   }
-  get_parent(id) {
-    return this.languages[id].parent
+  static get_parent(id) {
+    return this.languages[id].parent;
   }
-  localize(key, id) {
-    if (!id) id = this.current_lang;
+  static localize(key, id=this.current_lang) {
     while (id != null) {
       let s = this.lookup(key, id);
       if (s) return s;

@@ -8,9 +8,7 @@ tr
 </template>
 
 <script>
-import Language from '../js/language.js';
-
-var Lang = new Language();
+import Lang from '../js/language.js';
 
 export default {
   props: {
