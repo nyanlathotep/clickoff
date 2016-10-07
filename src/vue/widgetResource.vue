@@ -1,6 +1,6 @@
 <template lang="pug">
 tr
-  td {{resource.display}}
+  td {{display}}
   td -
   td {{resource.quantity}}
   td
@@ -8,15 +8,25 @@ tr
 </template>
 
 <script>
+import Language from '../js/language.js';
+
+var Lang = new Language();
+
 export default {
   props: {
+    id: String,
     resource: Object
   },
   data () {
     return {};
   },
+  computed: {
+    display () {
+      return Lang.localize(this.id);
+    }
+  },
   methods: {
-    gather: function (event) {
+    gather (event) {
       this.resource.quantity += 1;
     }
   }

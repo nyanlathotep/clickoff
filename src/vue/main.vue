@@ -4,7 +4,7 @@ div
     tr
       td
         table
-          tr(is='widget-resource', v-for='r in resources_displayed', v-bind:resource.sync='resources[r]')
+          tr(is='widget-resource', v-for='r in resources_displayed', v-bind:id='r', v-bind:resource.sync='resources[r]')
 </template>
 
 <script>
@@ -14,21 +14,17 @@ export default {
   data () {
     return {
       resources: {
-        smoke: {
-          quantity: 0,
-          display: 'Smoke'
+        res_smoke: {
+          quantity: 0
         },
-        meat: {
-          quantity: 0,
-          display: 'Meat'
+        res_meat: {
+          quantity: 0
         },
-        metal: {
-          quantity: 0,
-          display: 'Metal'
+        res_metal: {
+          quantity: 0
         },
-        plastic: {
-          quantity: 0,
-          display: 'Plastic'
+        res_plastic: {
+          quantity: 0
         }
       }
     };
