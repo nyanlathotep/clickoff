@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     gather (event) {
-      this.resource.quantity += 1;
+      this.$store.commit('gather', this.id);
     }
   }
 };

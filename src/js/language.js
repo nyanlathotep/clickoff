@@ -1,5 +1,3 @@
-let instance = null;
-
 export default class {
   static get languages() {
     if (!this._languages) this._languages = {};
